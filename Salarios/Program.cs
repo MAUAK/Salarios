@@ -9,7 +9,7 @@ namespace Salarios
         {
 
             //Colocando o número de funcionários
-            Console.WriteLine("Digite o número de funcionários: ");
+            Console.WriteLine("Quantos funcionários serão registrados? ");
             int n = int.Parse(Console.ReadLine());
 
             //Criando lista de funcionários
@@ -21,6 +21,7 @@ namespace Salarios
             //Criando uma estrututra de repetição para colocar os valores em cada funcionarios
             for (int i = 0; i < n; i++)
             {
+                Console.WriteLine("\nFuncionário #" + (i + 1) + " : ");
                 //Pedindo e colocando o ID
                 Console.WriteLine("Digite o Id: ");
                 int id = int.Parse(Console.ReadLine());
@@ -30,6 +31,7 @@ namespace Salarios
                     Console.WriteLine("\nId já existente!");      
                 }*/
 
+
                 //Pedindo e colocando o nome
                 Console.WriteLine("Digite o nome: ");
                 string nome = Console.ReadLine();
@@ -37,6 +39,7 @@ namespace Salarios
                 //Pedindo e colocando o salário
                 Console.WriteLine("Digite o salário: ");
                 double salario = double.Parse(Console.ReadLine());
+
                 //id2 = id;
 
                 //Colocando todos os valores de todas as variaveis em um funcionario
@@ -45,7 +48,7 @@ namespace Salarios
             }
 
             //Pedindo e colocando o ID para pesquisa
-            Console.WriteLine("Digite o id do funcionário: ");
+            Console.WriteLine("\nId do funcionário receberá aumento: ");
             int idFunc = int.Parse(Console.ReadLine());
 
             //Encontrando o funcionario pelo ID
@@ -55,7 +58,7 @@ namespace Salarios
             if (func != null)
             {
                 //Pedindo e colocando a porcetagem
-                Console.WriteLine("Digite a porcentagem: ");
+                Console.WriteLine("Porcentagem de aumento de salário: ");
                 double porc = double.Parse(Console.ReadLine());
                 //Chamando a funcão incrementar salário
                 func.incrementarSalario(porc);
@@ -63,20 +66,23 @@ namespace Salarios
             else
             {
                 //Informando que o ID não existe
-                Console.WriteLine("Id inexistente!");
+                Console.WriteLine("\nEste funcionário não existe!");
             }
 
             //Pulando linha
             Console.WriteLine();
             //Imprimindo autalização
-            Console.WriteLine("Atualização:");
-
+            Console.WriteLine("\nLista atualizada dos funcionários: ");
+            int t = 0;
             //Para cada item da lista imprimindo seus valores
             foreach (var item in funcionarios)
             {
-                Console.WriteLine(item.Id);
-                Console.WriteLine(item.Nome);
-                Console.WriteLine(item.Salario);
+
+                t++;
+                Console.WriteLine("\nFuncionário #" + t + ": ");
+                Console.WriteLine(item.Id + ", " + item.Nome + item.Salario);
+               // Console.WriteLine(item.Nome);
+                //Console.WriteLine("Salario: " + item.Salario);
                 Console.WriteLine("--------------");
             }
         }

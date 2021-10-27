@@ -16,7 +16,7 @@ namespace Salarios
         //Criando o método para incrementar a porcentagem ao salario
         public void incrementarSalario(double porcentagem)
         {
-            Salario *= porcentagem;
+            Salario += (Salario/porcentagem);
         }
     }
 }
