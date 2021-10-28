@@ -7,7 +7,6 @@ namespace Salarios
     {
         static void Main(string[] args)
         {
-
             //Colocando o número de funcionários
             Console.WriteLine("Quantos funcionários serão registrados? ");
             int n = int.Parse(Console.ReadLine());
@@ -15,22 +14,31 @@ namespace Salarios
             //Criando lista de funcionários
             List<Funcionario> funcionarios = new List<Funcionario>();
 
-            //Aqui eu tentei criar de algum jeito que o ID não se repetisse
-            //int id2 = 0;
+            //Criando uma variavel para o id não repetir
+            int id2 = 0;
 
             //Criando uma estrututra de repetição para colocar os valores em cada funcionarios
             for (int i = 0; i < n; i++)
             {
-                Console.WriteLine("\nFuncionário #" + (i + 1) + " : ");
-                //Pedindo e colocando o ID
-                Console.WriteLine("Digite o Id: ");
-                int id = int.Parse(Console.ReadLine());
+                //Declarando a variavel id
+                int id = 0;
 
-                /*if (id == id2)
+                //Criando uma estrutura de repetição para não repetir o id
+                do
                 {
-                    Console.WriteLine("\nId já existente!");      
-                }*/
+                    //Imprimindo o funcionário com seu número
+                    Console.WriteLine("\nFuncionário #" + (i + 1) + " : ");
+                    //Pedindo e colocando o ID
+                    Console.WriteLine("Digite o Id: ");
+                    id = int.Parse(Console.ReadLine());
 
+                    //Verificando se o id colocado é igual ao id antigo
+                    if (id == id2)
+                    {
+                        Console.WriteLine("\nId já existente!");
+                    }
+                    //Enquanto o id antigo for igual ao id atual, essa ação irá se repetir
+                } while (id2 == id);
 
                 //Pedindo e colocando o nome
                 Console.WriteLine("Digite o nome: ");
@@ -40,11 +48,11 @@ namespace Salarios
                 Console.WriteLine("Digite o salário: ");
                 double salario = double.Parse(Console.ReadLine());
 
-                //id2 = id;
+                //Colocando o valor do id antigo em uma vriavel
+                id2 = id;
 
                 //Colocando todos os valores de todas as variaveis em um funcionario
                 funcionarios.Add(new Funcionario { Id = id, Nome = nome, Salario = salario });
-
             }
 
             //Pedindo e colocando o ID para pesquisa
@@ -77,11 +85,10 @@ namespace Salarios
             //Para cada item da lista imprimindo seus valores
             foreach (var item in funcionarios)
             {
-
                 t++;
                 Console.WriteLine("\nFuncionário #" + t + ": ");
-                Console.WriteLine(item.Id + ", " + item.Nome + item.Salario);
-               // Console.WriteLine(item.Nome);
+                Console.WriteLine(item.Id + ", " + item.Nome + ", " + item.Salario);
+                // Console.WriteLine(item.Nome);
                 //Console.WriteLine("Salario: " + item.Salario);
                 Console.WriteLine("--------------");
             }
