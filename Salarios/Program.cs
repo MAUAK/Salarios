@@ -7,6 +7,10 @@ namespace Salarios
     {
         static void Main(string[] args)
         {
+            /*
+             * ----------------- KAUAM SILVA BATISTA - 210501 ----------- 
+             */
+
             //Colocando o número de funcionários
             Console.WriteLine("Quantos funcionários serão registrados? ");
             int n = int.Parse(Console.ReadLine());
